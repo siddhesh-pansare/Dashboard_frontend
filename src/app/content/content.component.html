@@ -1,0 +1,23 @@
+
+<mat-tab-group>
+    <mat-tab label="Home" >
+        <div class="row">
+            <div class="col-lg-5">
+                <app-form (notify)="addTab($event)"></app-form>
+            </div>
+            <div class="col-lg-7">
+                <app-table (notify)="addTab($event)"></app-table>
+            </div>
+            </div>
+    </mat-tab>
+
+    <mat-tab-group [(selectedIndex)]="selectedTabIndex" #tabGroup></mat-tab-group>
+    <mat-tab *ngFor="let tab of tabs; let i = index">
+        <ng-template mat-tab-label="New Tab" >New tab<mat-icon (click)="closeTab(i)">close</mat-icon></ng-template>
+        <app-tab></app-tab>
+    </mat-tab>
+  </mat-tab-group>
+  <!-- <button (click)="addTab($event)">Add tab</button> -->
+
+  
+

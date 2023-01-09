@@ -1,0 +1,5 @@
+<app-header (featureSelected)="onNavigate($event)"></app-header>
+<div class="container">
+      <app-content *ngIf="loadedFeature==='asset'"></app-content>
+      <app-content-tran *ngIf="loadedFeature==='transaction'"></app-content-tran>
+    </div>

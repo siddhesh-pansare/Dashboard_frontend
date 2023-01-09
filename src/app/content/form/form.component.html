@@ -1,0 +1,86 @@
+<div class="form1">
+  <div class="btn-group tool" role="group" aria-label="Button group with nested dropdown" >
+      <div class="btn-group" role="group" >
+          <button
+            id="dropdownMenuButton1"
+            type="button"
+            class="btn "
+            aria-expanded="false"
+            style="background-color: #444791; color:white;"
+            (click)="addTab()"
+          >
+          <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-plus-lg" viewBox="0 0 16 16">
+    <path fill-rule="evenodd" d="M8 2a.5.5 0 0 1 .5.5v5h5a.5.5 0 0 1 0 1h-5v5a.5.5 0 0 1-1 0v-5h-5a.5.5 0 0 1 0-1h5v-5A.5.5 0 0 1 8 2Z"/>
+  </svg>
+            New
+          </button>
+          <ul class="dropdown-menu" aria-labelledby="dropdownMenuButton1">
+            <li><a class="dropdown-item" href="#">Upload</a></li>
+            <li><a class="dropdown-item" href="#">Download</a></li>
+          </ul>
+        </div>
+      <button type="button" class="btn" style="background-color: #444791; color:white;"><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-x-lg" viewBox="0 0 16 16" (click)="resetForm()">
+          <path d="M2.146 2.854a.5.5 0 1 1 .708-.708L8 7.293l5.146-5.147a.5.5 0 0 1 .708.708L8.707 8l5.147 5.146a.5.5 0 0 1-.708.708L8 8.707l-5.146 5.147a.5.5 0 0 1-.708-.708L7.293 8 2.146 2.854Z"/>
+        </svg>Clear</button>
+      <button type="button" class="btn " style="background-color: #444791; color:white;"><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-search" viewBox="0 0 16 16">
+          <path d="M11.742 10.344a6.5 6.5 0 1 0-1.397 1.398h-.001c.03.04.062.078.098.115l3.85 3.85a1 1 0 0 0 1.415-1.414l-3.85-3.85a1.007 1.007 0 0 0-.115-.1zM12 6.5a5.5 5.5 0 1 1-11 0 5.5 5.5 0 0 1 11 0z"/>
+        </svg>Search</button>
+      <button type="button" class="btn " style="background-color: #444791; color:white;"><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-box-arrow-up-right" viewBox="0 0 16 16">
+          <path fill-rule="evenodd" d="M8.636 3.5a.5.5 0 0 0-.5-.5H1.5A1.5 1.5 0 0 0 0 4.5v10A1.5 1.5 0 0 0 1.5 16h10a1.5 1.5 0 0 0 1.5-1.5V7.864a.5.5 0 0 0-1 0V14.5a.5.5 0 0 1-.5.5h-10a.5.5 0 0 1-.5-.5v-10a.5.5 0 0 1 .5-.5h6.636a.5.5 0 0 0 .5-.5z"/>
+          <path fill-rule="evenodd" d="M16 .5a.5.5 0 0 0-.5-.5h-5a.5.5 0 0 0 0 1h3.793L6.146 9.146a.5.5 0 1 0 .708.708L15 1.707V5.5a.5.5 0 0 0 1 0v-5z"/>
+        </svg>Export</button>
+      
+    </div>
+    </div>
+<form (ngSubmit)="onSubmit(myform)" #myform="ngForm">
+<!-- <form> -->
+<!-- [formGroup]="productForm" -->
+<div class="form1">
+<div class="form-outline mb-4">
+    <input  type="text" id="form7Example1" class="form-control" placeholder="Source Code"  name="scode" ngModel/>
+  </div>
+  
+<div class="form-outline mb-4">
+    <input  type="text" id="form7Example2" class="form-control" placeholder="CAM ID" name="cid"  ngModel/>
+    <!-- #box (keyup)="onkey(box.value)" -->
+</div>
+
+  <div class="form-outline mb-4">
+    <input  type="text" id="form7Example2" class="form-control" placeholder="ASSET ID" name="aid" ngModel/>
+  </div>
+
+  <div class="form-outline mb-4">
+    <input type="text" id="form7Example2" class="form-control" placeholder="RUN INSTANCE ID" name="riid" ngModel/>
+  </div>
+
+  <div class="form-outline mb-4">
+    <input   type="text" id="form7Example2" class="form-control" placeholder="CUSIP" name="cusip" ngModel/>
+  </div>
+
+  <div class="row">
+  <div class="form-outline mb-4 form-group">
+    <input type="text"
+            class="form-control"
+            placeholder="Date Range"
+            bsDaterangepicker
+            [bsConfig]="datePickerConfig" 
+            name="date"
+            ngModel
+            >
+  </div>
+</div>
+
+  <div class="form-outline mb-4">
+    <input type="text" id="form7Example2" class="form-control" placeholder="FEED CODE" name="fcode" ngModel/>
+  </div>
+
+  <div class="form-outline mb-4">
+    <input  type="text" id="form7Example2" class="form-control" placeholder="PAM ACCT ID" name="paid" ngModel/>
+  </div>
+  <button class="btn btn-primary" style="background-color: #444791;">Submit</button>
+</div>
+</form>
+<!-- <button (click)="addTab()">demo</button> -->
+<!-- <ul>
+  <li *ngFor="let name of names">{{ name|json }}</li>
+</ul> -->
