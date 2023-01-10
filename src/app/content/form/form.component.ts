@@ -109,5 +109,7 @@ export class FormComponent implements OnInit {
     this.notify.emit(' ');
     this.tabser.setData('');
   }
-  resetForm() {}
+  resetForm(form: NgForm) {
+    form.reset();
+  }
 }

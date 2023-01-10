@@ -49,13 +49,6 @@ export class TabComponent implements OnInit {
       console.log("res", response);
     });
     this.dialog.open(DialogeboxComponent);
-    data.scode = '';
-    data.camid = '';
-    data.aid = '';
-    data.rid = '';
-    data.cusip = '';
-    data.fcode = '';
-    data.pamid = '';
   }
   toClear(data: any){
     data.scode = '';
