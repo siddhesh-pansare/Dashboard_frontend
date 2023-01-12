@@ -1,5 +1,5 @@
 import { SiblingsService } from './../../services/siblings.service';
-import { Component, OnInit, Input, Output, EventEmitter } from '@angular/core';
+import { Component, OnInit, Input, Output, EventEmitter, ViewChild, ViewChildren } from '@angular/core';
 import { FormBuilder, FormGroup, NgForm, Validators } from '@angular/forms';
 import { AssetsDataService } from './../../services/assets-data.service';
 import { BsDatepickerConfig } from 'ngx-bootstrap/datepicker';
@@ -7,10 +7,12 @@ import { HttpClient, HttpParams } from '@angular/common/http';
 import { SearchService } from 'src/app/services/search.service';
 import { TabServiceService } from 'src/app/services/tab-service.service';
 
+
 @Component({
   selector: 'app-form',
   templateUrl: './form.component.html',
   styleUrls: ['./form.component.css'],
+  
 })
 export class FormComponent implements OnInit {
   tabs: string[] = [];
@@ -19,6 +21,16 @@ export class FormComponent implements OnInit {
   datePickerConfig: Partial<BsDatepickerConfig>;
   dataValue: any;
   names: any;
+  @ViewChild('fileInput')
+
+  fileInput!: { nativeElement: { click: () => void; }; };
+  @ViewChildren('data.code,data.camid,data.assetid,data.rid,data.cusip,data.fcode,data.paid')
+
+ 
+
+  inputName!: { nativeElement: { value: string; }; };
+
+  
 
   constructor(
     private formbuilder: FormBuilder,
@@ -62,7 +74,7 @@ export class FormComponent implements OnInit {
   sendInfo() {
     //this.sibService.communicateMessage(this.dataValue);
   }
-  onSubmit(form: NgForm) {
+  onSearch(form: NgForm) {
     const scode = form.value.scode;
     const cid = form.value.cid;
     const aid = form.value.aid;
@@ -112,4 +124,17 @@ export class FormComponent implements OnInit {
   resetForm(form: NgForm) {
     form.reset();
   }
+
+  openFileDialog(){
+    this.fileInput.nativeElement.click();
+  }
+  file: any;
+  onFileChanged(event:Event){
+    const files = (event.target as HTMLInputElement).files;
+    console.log(files);
+
+  }
+  
+
+  
 }
