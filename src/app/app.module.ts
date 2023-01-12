@@ -21,6 +21,8 @@ import { TabComponent } from './content/tab/tab.component';
 import { MatIconModule } from '@angular/material/icon';
 import { MatDialogModule } from '@angular/material/dialog';
 import { DialogeboxComponent } from './content/dialogebox/dialogebox.component';
+import { MatMenuModule } from '@angular/material/menu';
+import {MatButtonModule} from '@angular/material/button';
 
 
 
@@ -50,7 +52,9 @@ import { DialogeboxComponent } from './content/dialogebox/dialogebox.component';
     BsDatepickerModule.forRoot(),
     MatTabsModule,
     MatIconModule,
-    MatDialogModule
+    MatDialogModule,
+    MatMenuModule,
+    MatButtonModule
   ],
   //entryComponents:[MatTabsModule],
   providers: [],
