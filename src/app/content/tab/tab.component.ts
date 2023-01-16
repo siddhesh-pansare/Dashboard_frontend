@@ -11,6 +11,7 @@ import { HttpClient,HttpParams } from '@angular/common/http';
   styleUrls: ['./tab.component.css']
 })
 export class TabComponent implements OnInit {
+
     data = {
       scode: '',
       camid: '',
@@ -27,6 +28,7 @@ export class TabComponent implements OnInit {
       private tabser: TabServiceService, 
       private dialog: MatDialog,
       private http: HttpClient ) { }
+
 
     ngOnInit(): void {
       //this.data = this.tabser.getData();
@@ -82,6 +84,7 @@ export class TabComponent implements OnInit {
         });
         this.dialog.open(DialogeboxComponent);
     }
+
   }
   toClear(data: any){
     //data.scode = '';
