@@ -11,6 +11,7 @@ import { HttpClient,HttpParams } from '@angular/common/http';
   styleUrls: ['./tab.component.css']
 })
 export class TabComponent implements OnInit {
+
     data = {
       scode: '',
       camid: '',
@@ -20,13 +21,14 @@ export class TabComponent implements OnInit {
       fcode: '',
       pamid: ''
     }
-    editing:boolean = false;  
+    editing:boolean = false;
     toShow:boolean = true;
     flag:boolean = false;
     constructor(
-      private tabser: TabServiceService, 
+      private tabser: TabServiceService,
       private dialog: MatDialog,
       private http: HttpClient ) { }
+
 
     ngOnInit(): void {
       //this.data = this.tabser.getData();
@@ -69,7 +71,7 @@ export class TabComponent implements OnInit {
       if (this.flag) {
         console.log(this.flag);
         console.log(this.data);
-        const url = 'http://localhost:5000/fields';      
+        const url = 'http://localhost:5000/fields';
         this.http.post(url, this.data).subscribe(response => {
         console.log(response);
     });
@@ -82,6 +84,7 @@ export class TabComponent implements OnInit {
         });
         this.dialog.open(DialogeboxComponent);
     }
+
   }
   toClear(data: any){
     //data.scode = '';

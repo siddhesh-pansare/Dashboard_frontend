@@ -33,3 +33,7 @@ div.scroll{
 tbody input {
   width: 100px;
 }
+
+td, th{
+  text-align:center;
+}
