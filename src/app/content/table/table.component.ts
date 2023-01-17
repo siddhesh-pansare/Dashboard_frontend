@@ -13,7 +13,7 @@ import { SearchService } from 'src/app/services/search.service';
 })
 export class TableComponent implements OnInit {
   @Output()
-  notify:EventEmitter<string>=new EventEmitter<string>();
+  editTabEvent:EventEmitter<string>=new EventEmitter<string>();
   tabs: string[] = [];
   selectedTabIndex = 0;
   selectedRow:any;
@@ -25,23 +25,23 @@ export class TableComponent implements OnInit {
   searchText6:any;
   searchText7:any;
   searchText8:any;
-  editing:boolean = false;  
-  toShow:boolean = true; 
+  editing:boolean = false;
+  toShow:boolean = true;
   //names:any;
   names: any =[];
-  
+
   title = 'learnApi';
   constructor(private userData: AssetsDataService, private sibService: SiblingsService, private http: HttpClient, private tabser: TabServiceService, private search: SearchService){
     // this.names = this.search.get();
     // console.log("in table", this.search.get());
-    //console.log(this.names); 
+    //console.log(this.names);
 
     this.search.get().subscribe((data) => {
       this.names = data;
     });
-    
+
   }
-   
+
   ngOnInit(): void {
     this.userData.asset().subscribe((data)=> {
       console.log("data", data)
@@ -51,7 +51,7 @@ export class TableComponent implements OnInit {
     //   //console.log("B : " + message);
     //   this.searchText2 = message;
     // })
-    
+
   }
    save({ scode, camid, aid, rid, cusip, fcode, pamid }: any){
     this.editing = false;
@@ -74,8 +74,8 @@ export class TableComponent implements OnInit {
   addTabin(data:any){
     this.tabs.push(` Tab ${this.tabs.length + 1}`);
     this.selectedTabIndex=this.tabs.length-1;
-    this.notify.emit("");
-    console.log(data);
+    this.editTabEvent.emit(data.camid);
+    //console.log('my data'+data.camid);
     this.tabser.setData(data);
  }
 }
